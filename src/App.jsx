@@ -11,8 +11,8 @@ function App() {
     });
 
     const [stats, setStats] = useState({
-        followers: 42,
-        following: 10
+        followers: 0,
+        following: 0
     });
 
     const changeAvatar = url => {
@@ -23,10 +23,18 @@ function App() {
         setUser(prevState => ({...prevState, name: name || prevState.name}));
     }
 
+    const changeStats = (statsType, sum) => {
+        setStats(stats => {
+            let res = stats[statsType] + sum;
+            res = res < 0 ? 0 : res;
+            return {...stats, [statsType]: res};
+        })
+    }
+
     return (
         <div className={'app'}>
             <TwitterContext.Provider value={{
-                user, stats, changeAvatar, changeName
+                user, stats, changeAvatar, changeName, changeStats,
             }}>
                 <Navigation/>
                 <Body/>
