@@ -3,7 +3,7 @@ import Content from "./Content.jsx";
 
 const Body = () => {
     return (
-        <div className={'body'}>
+        <div className={"body"}>
             <Sidebar/>
             <Content/>
         </div>

@@ -1,6 +1,7 @@
 import Avatar from "./Avatar.jsx";
 import {useDispatch, useSelector} from "react-redux";
-import {changeStats} from "../actions/statsAction.js";
+import {changeStats} from "../features/stats/statSlice.js";
+
 
 const Stats = () => {
     const {followers, following} = useSelector(state => state.stats);
